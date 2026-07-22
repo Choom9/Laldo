@@ -30,14 +30,23 @@ buttonOverlay.addEventListener("click", function () {
 
 
 const einträgeArray = []
-
-form.addEventListener("submit", function(e) {
+// async vor Funktion brauche ich, weil ich await benutze
+// await brauche ich damit die funktion wartet bis server ergebnis da ist
+form.addEventListener("submit", async function(e) {
     
     e.preventDefault(); // brauche ich weil sonst daten direkt an browser und weil sonst seite neu lädt
 
     const data = new FormData(form)
 
     const eintrag = Object.fromEntries(data.entries())
+
+    // fetch -> Anfrage an Server (HTTP)
+    // Post -> man sendet Daten an Server
+    // JSON stringify -> Übersetzen von js Objekt in JSON, weil JSON verstanden wird von HTTP
+    await fetch("http://localhost:3000/entries", {
+    method: "POST",
+    body: JSON.stringify(eintrag)
+    });
 
     const eintragInJson= JSON.stringify(eintrag);
 
