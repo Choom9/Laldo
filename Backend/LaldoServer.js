@@ -134,13 +134,13 @@ Portnummer sagt welcher lokale server die anfrage bekommen soll
 
 const sqlite = require("node:sqlite");
 // Datenbank Bib sqlite laden
-// require lädt eine bereits runtergeladene Datei in eine datei
+// require lädt eine bereits runtergeladene Datei in eine variable 
 // richtiges herunterladen durch npm install
 // sqlite liefert ein Objekt mit Methoden
 
 const datenbank = new sqlite.DatabaseSync("Backend/laldo.db");
 // Klasse = Bauanleitung für objekte
-// DatabaseSync ist eine klasse von sqlite, muss mir new aufgerufen werden, erzeugt ein neues objekt mit den eiegnscahften der klasse 
+// DatabaseSync ist eine klasse von sqlite, muss mit new aufgerufen werden, erzeugt ein neues objekt mit den eiegnscahften der klasse 
 // Datenbank wird dadurch beim satrt des Backend erstellt
 
 datenbank.exec(`
