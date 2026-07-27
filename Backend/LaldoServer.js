@@ -19,16 +19,11 @@ expressApp.use(express.json());
 expressApp.post("/entries", (req, res) => {
   einträgeArrayFürB.push(req.body);
 
-  eintragSpeichern.run(
-  req.body.Betrag,
-  req.body.Von,
-  req.body.An
-);
+ 
 // führt die Funktion aus, die Einträge in Datenbank speichert
 
 // Saldo wird berechnet von Nikos Perspektive
 // Muss im Frontend noch umgedreht werden wenn User=Yelva
-
 
     let letzterBetrag = Number(letzteArrEigsch(einträgeArrayFürB, "Betrag"))
     let letztesVon = letzteArrEigsch(einträgeArrayFürB, "Von")
@@ -36,17 +31,31 @@ expressApp.post("/entries", (req, res) => {
 
     let richtigerBetrag = betragVorzeichen(letzterBetrag, letztesVon,letztesAn);
 
+    saldo = letztesSaldoHolenFunktion();
+    // Aktuellstes Saldo aus der Datenbank holen 
+
     saldo = saldoUpdate(richtigerBetrag, saldo)
+    // Mit den neuen einträgen verrechnen
+ 
+    eintragSpeichern.run(
+    req.body.Betrag,
+    req.body.Von,
+    req.body.An, 
+    saldo
+    );
 
   res.send(saldo);
 });
-
 // Wenn jemand eine POST-Anfrage an /entries sendet, füge den gesendeten Inhalt in mein Backend-Array ein, berechne Saldo aus Nikos Perspektive
 // Eintrag vom Server kommt rein
 // post sagt: reagiere auf die Post Anfrage mit der Route entries
 // req = request (anfrage), hier findet der server ibformationen z.b über body
 // res = response, damit antowrtet der server
 // res.send(saldo) = schicke saldo zurück als Antowrt 
+
+  expressApp.get("/saldo", (req, res) => {
+    res.send(letztesSaldoHolenFunktion());
+  });
 
 
 
@@ -102,7 +111,7 @@ let saldoUpdate = function(richtigerBetrag, altSaldo) {
 
 
 
-server.listen(3000);
+expressApp.listen(3000);
 // listen = Methode von Express, startet Server
 // 3000 ist die PortNummer, unter der ist er erreichbar 
 
@@ -114,8 +123,8 @@ server.listen(3000);
 
 Warum 1.? Node ist die Laufzeit für JavaScript außrhalb des Browsers
 Laufzeit = Programm, dass Code tatsächlich ausführt. Bei JS im Browser macht es der browser. JS außerhalb für z.b Server braucht ein eigenes Prorgamm -> NODE
-Node wird gestartet über Terminal mit "node Backend/LaldoServer.js"
-Beendet wird der Server mit Command C
+!!!! Node wird gestartet über Terminal mit "node Backend/LaldoServer.js"
+!!!! Beendet wird der Server mit Command C
 
 Warum 2.? Express gibt Befehle/Methoden für Server Aufbau.
 Express ist eine Bibliothek: fertiger Code von anderen Entwicklern der mir mein Leben leichter macht
@@ -148,19 +157,45 @@ datenbank.exec(`
     id INTEGER PRIMARY KEY,
     Betrag REAL NOT NULL,
     Von TEXT NOT NULL,
-    An TEXT NOT NULL
-  )
-`);
+    An TEXT NOT NULL,
+    Saldo REAL NOT NULL
+  )`
+);
 
 //tabelle kommt in datenbank
 // .exec() führe Befehl, der in Klammern, in meiner Datenbank aus
 // Create Table IF not exist = erzeuge eine Tabelle, falss noch keine da ist
 // Jedes ding am anfang definiert eine Spalte, id, betrag..., kommas trennen spalten
 // text Not null ? hier wird text gespeichert, not null = darf nicht fehlen der eintrag
+// By the way, die sprache hier ist SQL
 
 const eintragSpeichern = datenbank.prepare(`
-  INSERT INTO entries (Betrag, Von, An)
-  VALUES (?, ?, ?)
+  INSERT INTO entries (Betrag, Von, An, Saldo)
+  VALUES (?, ?, ?, ?)
 `);
-
+// Speichert den Eintrag in die Datenbank 
 // prepare() = bereite diesen SQL befehl vor aber führe ihn noch nicht aus
+
+const letztesSaldoHolen = datenbank.prepare(`
+  SELECT Saldo
+  FROM entries
+  ORDER BY id DESC
+  LIMIT 1
+  `);
+// Holt Saldo aus der Datenbank
+// Select = Hole nur die Spalte saldo 
+// FROM entries = aus der tabelle entries 
+// ORDER BY id DESC = Sortiere nach ID, von groß nach klein (DESC = descending = absteigend)
+// muss noch mit get() ausgeführt werden 
+// würde in objekt rausgeben {Saldo: xxx}, deswegen bei Zugriff durch JS saldo.xxx
+
+let letztesSaldoHolenFunktion = function() {
+  let saldoAktuell = letztesSaldoHolen.get();
+
+  if (saldoAktuell == undefined) {
+
+    return 0;
+  }
+return saldoAktuell.Saldo
+
+}

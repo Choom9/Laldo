@@ -7,7 +7,7 @@ const form = document.getElementById("eintragForm")
 
 const saldoHtml = document.getElementById("saldo")
 
-let saldo = 0
+
 
 const overlayHtml = document.getElementById("overlay")
 
@@ -20,16 +20,41 @@ const userHtmlText = document.getElementById("userHtmlText")
 const saldosText = document.getElementById("saldoText") 
 
 
-buttonOverlay.addEventListener("click", function () {
+buttonOverlay.addEventListener("click", async function () {
     overlayHtml.classList.add("hidden")
     user = userSelectHtml.value
     userHtmlText.textContent = "User: " + user
     console.log(overlayHtml.className)
     console.log(user)
+
+    let antwortVomBackend = await fetch("http://localhost:3000/saldo", {
+    method: "GET",
+    // header mit JSON anweisung braucht man nicht, weil man keine Daten schickt
+   // kein Body, braucht man nur wenn man neue daten schickt
+    });
+    let saldoVomBackendAlt = await  antwortVomBackend.json();
+    // fetch gibt nur Response Objekt, mit json()-> antwort body auslesen und umwandeln in JS
+
+let saldoRichtigAlt
+    if (user == "Nikos") {
+    saldoRichtigAlt = saldoVomBackendAlt
+    }
+
+    else if (user == "Yelva") {
+    saldoRichtigAlt = -saldoVomBackendAlt
+    }
+
+    saldoText(saldosText, user, saldoRichtigAlt);
+    //Text setzen
+    saldoHtml.textContent = saldoRichtigAlt;
+    // saldo setzen
 })
+// warum async und await?
 
 
-const einträgeArray = []
+let saldoVomBackend
+let saldoRICHTIG
+
 // async vor Funktion brauche ich, weil ich await benutze
 // await brauche ich damit die funktion wartet bis server ergebnis da ist
 form.addEventListener("submit", async function(e) {
@@ -39,84 +64,46 @@ form.addEventListener("submit", async function(e) {
     const data = new FormData(form)
 
     const eintrag = Object.fromEntries(data.entries())
-
-    // fetch -> Anfrage an Server (HTTP)
+    // !!!!fetch -> Anfrage an Server (HTTP)
+    // !! Fetch klärt 1. das was an backend geschickt wird und 2. der rückgabe wert davon ist die Antwort von Backend 
     // Post -> man sendet Daten an Server
     // JSON stringify -> Übersetzen von js Objekt in JSON, weil JSON verstanden wird von HTTP
-    await fetch("http://localhost:3000/entries", {
+
+
+
+    let antwortVomBackend = await fetch("http://localhost:3000/entries", {
     method: "POST",
-    body: JSON.stringify(eintrag)
+    headers: { "Content-Type": "application/json" }, // Damit express im Backend weis dass das JSON ist
+    body: JSON.stringify(eintrag), 
     });
+    // POST = Daten senden und speichern 
+    // GET = Daten vom Server anfordern
 
-
-    einträgeArray.push(eintrag);
-    
-    let letzterBetrag = Number(letzteArrEigsch(einträgeArray, "Betrag"))
-    let letztesVon = letzteArrEigsch(einträgeArray, "Von")
-    let letztesAn =letzteArrEigsch(einträgeArray, "An")
-
-    let richtigerBetrag
+    saldoVomBackend = await antwortVomBackend.json();
+    // !!!!kriegt saldo vom Backend
+  
 
     if (user == "Nikos") {
-    richtigerBetrag = betragVorzeichen(letzterBetrag, letztesVon,letztesAn)
+    saldoRICHTIG = saldoVomBackend
     }
 
     else if (user == "Yelva") {
-    richtigerBetrag = -betragVorzeichen(letzterBetrag, letztesVon,letztesAn)
+    saldoRICHTIG = -saldoVomBackend
     }
+    //!! Vorzeichen des Saldos je nach User Umdrehen
     
 
     
-    saldo = saldoUpdate(richtigerBetrag, saldo)
-    saldoText(saldosText, user, saldo)
-    console.log("Saldo= " + saldo)
+    
+    saldoText(saldosText, user, saldoRICHTIG);
+    console.log("Saldo= " + saldoRICHTIG);
 
-    saldoHtml.textContent = saldo
-    console.log(eintrag)
-    console.log(einträgeArray)
+    saldoHtml.textContent = saldoRICHTIG;
+    console.log(eintrag);
 })
 
 // Betrag Rechner Je nachdem .... an .... muss betrag vorzeichen passen
 // Wenn nikos yelva 10€ schuldet (10€ von yelva an Nikos ) -> SaLdo -10€
-
-let letzteArrEigsch = function (array, arrayEigenschaft) {
-   let richtigeEigsch =  array[array.length-1][arrayEigenschaft]
-    return richtigeEigsch
-}
-
-let betragVorzeichen = function (betrag, von, an ) {
-    let richtigerBetrag 
-    if (von == "Yelva" && an == "Nikos") {
-        richtigerBetrag = -betrag
-    }
-
-    else if (von == "Yelva" && an =="Beide") {
-        richtigerBetrag = -(betrag/2)
-    }
-
-    else if (von == "Yelva" && an == "Yelva" ) {
-        richtigerBetrag = 0
-    }
-
-    else if (von == "Nikos" && an == "Yelva") {
-        richtigerBetrag = +betrag
-    }
- 
-    else if (von == "Nikos" && an =="Beide") {
-        richtigerBetrag = +(betrag/2)
-    }
-
-   else if (von == "Nikos" && an == "Nikos") {
-     richtigerBetrag = 0
-   }
-
-    return richtigerBetrag
-}
-
-let saldoUpdate = function(richtigerBetrag, altSaldo) {
-    let neuSaldo = altSaldo + richtigerBetrag
-    return neuSaldo
-}
 
 let saldoText = function(div, user, saldo) {
 
