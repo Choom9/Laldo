@@ -39,7 +39,7 @@ Bibliotheken
 - Express.js (für HTTP Anfragen und Server-Routen)
 - cors (Frontend und Backend laufen auf unterschiedlichen Ports, cors sorgt dafür, dass Browser Verbindung nicht blockiert)
 
-  Laufzeiten
+Laufzeiten
 
 -  Browser
 -  Node.js
@@ -50,7 +50,7 @@ Datenbank
 
 Starten
 
-1. Projekt herunterladen und klonen
+1. Projekt herunterladen 
 2. Im Hauptordner die benötigten Bibliotheken installieren:
    -> Projektordner im Terminal öffnen und "npm install" eingeben
 3. Backend starten: "node Backend/LaldoServer.js
