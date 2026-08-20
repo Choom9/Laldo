@@ -1,5 +1,57 @@
 Laldo
 
 Meine Partnerin und ich leihen uns hier und da Geld. Wir verlieren schnell den Überblick. 
-Laldo soll unser Saldo tracken. Natürlich würde auch Excel gehen aber ein wichtiger Hintergedanke beim Erstellen
+Laldo soll unser Saldo tracken. Natürlich würde auch Excel gehen aber ein wichtiger Hintergedanke beim Erstellen dieser kleinen Web-Applikation 
 war das Lernen. Laldo besteht nämlich aus einem simplen Frontend, Backend und einer Datenbank. 
+
+Demo
+
+xxx
+
+Nutzung von KI
+
+Das ganze wurde nicht "agentisch" erstellt. Stattdessen habe ich KI wie eine Art "Super Google" oder Tutor benutzt, mit der konkreten Anweisung:
+"Gib mir nicht den ganzen Code sondern erkläre mir Syntax und Konzepte, damit ich lerne und verstehe was ich hier tue".
+
+Funktionen
+
+- Erfassen wer wem für was Geld gegeben hat
+- Saldo anzeigen aus Sicht von Nikos oder Yelva (Benutzer wird beim Starten gewählt)
+- Einträge dauerhaft in einer Datenbank speichern (der Gedanke war, dass wir beide darauf zugreifen könnten)
+
+
+
+Ordner Struktur
+
+Frontend: User Interface, Anpassung des Saldos (Vorzeichen) je nachdem welcher Nutzer ausgewählt wurde, Senden der Einträge an Backend 
+Backend: Berechnung des Saldos, Senden des Saldos an Frontend, Speicherung der Einträge in eine Datenbank, Datenbank
+
+
+Benutzte Sprachen
+
+- HTML
+- CSS
+- JavaScript
+- SQL
+
+Bibliotheken 
+
+- Express.js (für HTTP Anfragen und Server-Routen)
+- cors (Frontend und Backend laufen auf unterschiedlichen Ports, cors sorgt dafür, dass Browser Verbindung nicht blockiert)
+
+  Laufzeiten
+
+-  Browser
+-  Node.js
+
+Datenbank
+
+- SQLite
+
+Starten
+
+1. Projekt herunterladen und klonen
+2. Im Hauptordner die benötigten Bibliotheken installieren:
+   -> Projektordner im Terminal öffnen und "npm install" eingeben
+3. Backend starten: "node Backend/LaldoServer.js
+4. Frontend mit Live Server öffnen
