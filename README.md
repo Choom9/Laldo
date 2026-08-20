@@ -1,19 +1,19 @@
-Laldo
+# Laldo
 
 Meine Partnerin und ich leihen uns hier und da Geld. Wir verlieren schnell den Überblick. 
 Laldo soll unser Saldo tracken. Natürlich würde auch Excel gehen aber ein wichtiger Hintergedanke beim Erstellen dieser kleinen Web-Applikation 
 war das Lernen. Laldo besteht nämlich aus einem simplen Frontend, Backend und einer Datenbank. 
 
-Demo
+## Demo
 
 xxx
 
-Nutzung von KI
+## Nutzung von KI
 
 Das ganze wurde nicht "agentisch" erstellt. Stattdessen habe ich KI wie eine Art "Super Google" oder Tutor benutzt, mit der konkreten Anweisung:
 "Gib mir nicht den ganzen Code sondern erkläre mir Syntax und Konzepte, damit ich lerne und verstehe was ich hier tue".
 
-Funktionen
+## Funktionen
 
 - Erfassen wer wem für was Geld gegeben hat
 - Saldo anzeigen aus Sicht von Nikos oder Yelva (Benutzer wird beim Starten gewählt)
@@ -21,34 +21,34 @@ Funktionen
 
 
 
-Ordner Struktur
+## Ordner Struktur
 
 Frontend: User Interface, Anpassung des Saldos (Vorzeichen) je nachdem welcher Nutzer ausgewählt wurde, Senden der Einträge an Backend 
 Backend: Berechnung des Saldos, Senden des Saldos an Frontend, Speicherung der Einträge in eine Datenbank, Datenbank
 
 
-Benutzte Sprachen
+## Benutzte Sprachen
 
 - HTML
 - CSS
 - JavaScript
 - SQL
 
-Bibliotheken 
+## Bibliotheken 
 
 - Express.js (für HTTP Anfragen und Server-Routen)
 - cors (Frontend und Backend laufen auf unterschiedlichen Ports, cors sorgt dafür, dass Browser Verbindung nicht blockiert)
 
-Laufzeiten
+## Laufzeiten
 
 -  Browser
 -  Node.js
 
-Datenbank
+## Datenbank
 
 - SQLite
 
-Starten
+## Starten
 
 1. Projekt herunterladen 
 2. Im Hauptordner die benötigten Bibliotheken installieren:
@@ -56,7 +56,7 @@ Starten
 3. Backend starten: "node Backend/LaldoServer.js
 4. Frontend mit Live Server öffnen
 
-Was ich gelernt habe
+## Was ich gelernt habe
 
 - Kommunikation zwischen Frontend und Backend mit fetch, HTTP und JSON
 - Damit JavaScript auf etwas anderem als einem Browser läuft, braucht man NODE.js
@@ -64,6 +64,7 @@ Was ich gelernt habe
 - Daten dauerhaft speichern mit SQLite und SQL
 - Zugriff auf Methoden aus Bibliotheken 
 
+## 
 DISCLAIMER: Es gibt eindeutig Dinge an diesem Code, die ich nicht zu 100% verstehe. 
 Anwenden und so grob verstehen was man macht geht ganz gut aber dahinter liegende Konzepte verwirren mich zum Teil noch
 Konkreter, Was ich immer noch nicht ganz verstehe
