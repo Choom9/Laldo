@@ -58,10 +58,16 @@ Starten
 
 Was ich gelernt habe
 
-- Zusammemspiel aus Frontend und Backend mit fetch, HTTP und JSON
+- Kommunikation zwischen Frontend und Backend mit fetch, HTTP und JSON
+- Damit JavaScript auf etwas anderem als einem Browser läuft, braucht man NODE.js
+- Grundlegende Datenstruktur: Backend berechnet, speichert in Datenbank, schickt Ergebnis der Berechnung an Frontend...
 - Daten dauerhaft speichern mit SQLite und SQL
+- Zugriff auf Methoden aus Bibliotheken 
 
-Was ich immer noch nicht verstehe
+DISCLAIMER: Es gibt eindeutig Dinge an diesem Code, die ich nicht zu 100% verstehe. 
+Anwenden und so grob verstehen was man macht geht ganz gut aber dahinter liegende Konzepte verwirren mich zum Teil noch
+Konkreter, Was ich immer noch nicht ganz verstehe
 
-- asynchrone Abläufe verwirren mich
-- Kommunikation 
+- asynchrone Abläufe 
+- Internet Kommunikation: Was sind Port? Was ist HTTP?
+- Wie Bibliotheken grundlegend funktionieren
