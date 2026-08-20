@@ -55,3 +55,13 @@ Starten
    -> Projektordner im Terminal öffnen und "npm install" eingeben
 3. Backend starten: "node Backend/LaldoServer.js
 4. Frontend mit Live Server öffnen
+
+Was ich gelernt habe
+
+- Zusammemspiel aus Frontend und Backend mit fetch, HTTP und JSON
+- Daten dauerhaft speichern mit SQLite und SQL
+
+Was ich immer noch nicht verstehe
+
+- asynchrone Abläufe verwirren mich
+- Kommunikation 
