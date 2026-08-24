@@ -25,7 +25,7 @@ Das ganze wurde nicht "agentisch" erstellt. Stattdessen habe ich KI wie eine Art
 
 Frontend: User Interface, Anpassung des Saldos (Vorzeichen) je nachdem welcher Nutzer ausgewählt wurde, Senden der Einträge an Backend 
 
-Backend: Berechnung des Saldos, Senden des Saldos an Frontend, Speicherung der Einträge in eine Datenbank, Datenbank
+Backend: Berechnung des Saldos, Senden des Saldos an Frontend, Speicherung der Einträge in eine Datenbank, Datenbank Initialisierung
 
 
 ## Benutzte Sprachen
