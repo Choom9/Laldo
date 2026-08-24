@@ -6,7 +6,7 @@ war das Lernen. Laldo besteht nämlich aus einem simplen Frontend, Backend und e
 
 ## Demo
 
-xxx
+https://drive.google.com/file/d/1kCjsZfN9_QzgXa2wIahSbswKaTIwcpE_/view?usp=sharing
 
 ## Nutzung von KI
 
@@ -55,7 +55,7 @@ Backend: Berechnung des Saldos, Senden des Saldos an Frontend, Speicherung der E
 2. Im Hauptordner die benötigten Bibliotheken installieren:
    -> Projektordner im Terminal öffnen und "npm install" eingeben
 3. Backend starten: "node Backend/LaldoServer.js"
-4. Frontend mit Live Server öffnen
+4. Frontend in einem Browser öffnen (bei Live Server hatte ich Probleme, deswegen habe ich die Datei direkt mit einem Browser geöffnet)
 
 ## Was ich gelernt habe
 
