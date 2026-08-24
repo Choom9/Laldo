@@ -54,7 +54,7 @@ Backend: Berechnung des Saldos, Senden des Saldos an Frontend, Speicherung der E
 1. Projekt herunterladen 
 2. Im Hauptordner die benötigten Bibliotheken installieren:
    -> Projektordner im Terminal öffnen und "npm install" eingeben
-3. Backend starten: "node Backend/LaldoServer.js
+3. Backend starten: "node Backend/LaldoServer.js"
 4. Frontend mit Live Server öffnen
 
 ## Was ich gelernt habe
