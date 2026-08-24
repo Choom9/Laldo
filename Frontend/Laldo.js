@@ -124,6 +124,11 @@ let saldoText = function(div, user, saldo) {
     else if (user == "Nikos" && saldo > 0 ) {
     {div.textContent = `Yelva schuldet Nikos ${betragOhneVorzeichen}€`}    
     }
+
+    else if( saldo == 0) {
+    {div.textContent = `Ihr seid quitt`}
+    }
+    
 }
 
 //Du kannst const nehmen weil die refernz gleich bleibt. Form zeigt immer auf das gleiche 

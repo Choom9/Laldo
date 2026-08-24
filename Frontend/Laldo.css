@@ -7,7 +7,7 @@ form, input, select, textarea, button {
 }
 
 .hidden {
-  display: none !important;  /* Hier definierst du, dass hidden = unsichtbar */
+  display: none !important;  /* hidden = unsichtbar */
 }
 
 #overlay {
