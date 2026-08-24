@@ -69,5 +69,5 @@ Anwenden und verstehen was man macht geht ganz gut aber dahinter liegende Konzep
 Konkreter, was ich immer noch nicht ganz verstehe:
 
 - asynchrone Abläufe 
-- Internet Kommunikation: Was sind Port? Was ist HTTP?
-- Wie Bibliotheken grundlegend funktionieren
+- Internet Kommunikation: Was sind Ports? Was ist HTTP?
+- Wie funktionieren Bibliotheken grundlegend? 
