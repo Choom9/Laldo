@@ -71,5 +71,5 @@ Konkreter, was ich immer noch nicht ganz verstehe:
 
 - asynchrone Abläufe 
 - Internet Kommunikation: Was sind Ports? Was ist HTTP?
-- Konzepte hinter und Möglichkeiten mit fetch ()
+- Konzepte hinter und Möglichkeiten mit fetch()
 - Wie funktionieren Bibliotheken grundlegend? 
