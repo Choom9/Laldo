@@ -65,7 +65,7 @@ Backend: Berechnung des Saldos, Senden des Saldos an Frontend, Speicherung der E
 - Daten dauerhaft speichern mit SQLite und SQL
 - Zugriff auf Methoden aus Bibliotheken 
 
-## DISCLAIMER: Es gibt Dinge an diesem Code, die ich nicht zu 100% verstehe. 
+## Was ich noch lernen sollte
 Anwenden und verstehen was man macht geht ganz gut aber dahinter liegende Konzepte verwirren mich zum Teil noch.
 Konkreter, was ich immer noch nicht ganz verstehe:
 
