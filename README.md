@@ -6,6 +6,8 @@ war das Lernen. Laldo besteht nämlich aus einem simplen Frontend, Backend und e
 
 ## Demo
 
+![Laldo Demo](Laldo.gif)
+
 https://drive.google.com/file/d/1kCjsZfN9_QzgXa2wIahSbswKaTIwcpE_/view?usp=sharing
 
 ## Nutzung von KI
