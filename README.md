@@ -12,7 +12,7 @@ https://drive.google.com/file/d/1kCjsZfN9_QzgXa2wIahSbswKaTIwcpE_/view?usp=shari
 
 ## Nutzung von KI
 
-Das ganze wurde nicht "agentisch" erstellt. Stattdessen habe ich KI wie eine Art "Super Google" oder Tutor benutzt, mit der Anweisung:
+Das ganze wurde nicht "agentisch" erstellt. Stattdessen habe ich LLMs wie eine Art "Super Google" oder Tutor benutzt, mit der Anweisung:
 "Gib mir nicht den ganzen Code sondern erkläre mir Syntax und Konzepte, damit ich lerne und verstehe was ich hier tue".
 
 ## Funktionen
