@@ -1,12 +1,12 @@
 const einträgeArrayFürB = [];
 
 const express = require("express");
-// Holt die Express Bibliothek und speicher ihren inhalt in express vari
+// Holt die Express Bibliothek und speichert ihren inhalt in express vari
 
 const cors = require("cors");
 
 const expressApp = express();
-// express(), erzeigt eine express anwednung gibt sie zurück, wird dann in app gespeichert 
+// express(), erzeugt eine express anwednung, gibt sie zurück, wird dann in app gespeichert 
 // express liefert eine Funktion 
 
 expressApp.use(cors());
@@ -49,7 +49,7 @@ expressApp.post("/entries", (req, res) => {
 // Wenn jemand eine POST-Anfrage an /entries sendet, füge den gesendeten Inhalt in mein Backend-Array ein, berechne Saldo aus Nikos Perspektive
 // Eintrag vom Server kommt rein
 // post sagt: reagiere auf die Post Anfrage mit der Route entries
-// req = request (anfrage), hier findet der server ibformationen z.b über body
+// req = request (anfrage), hier findet der server informationen z.b über body
 // res = response, damit antowrtet der server
 // res.send(saldo) = schicke saldo zurück als Antowrt 
 
@@ -68,7 +68,7 @@ expressApp.post("/entries", (req, res) => {
     return richtigeEigsch
 }
 //Hole das letzte Element aus dem Array, hole xxx Eigenschaft raus, um zu wissen was "das letzte von, an und letzter Betrag sind"
-// Alten Saldo mit neuem betrag verrechnen ist datensparsamer als ständig alles aus dem array zu berechnen um auf saldo zu kommen
+// Alten Saldo mit neuem betrag verrechnen; ist datensparsamer als ständig alles aus dem array zu berechnen um auf saldo zu kommen
 
 
 let betragVorzeichen = function (betrag, von, an ) {
@@ -106,7 +106,7 @@ let saldoUpdate = function(richtigerBetrag, altSaldo) {
     let neuSaldo = altSaldo + richtigerBetrag
     return neuSaldo
 }
-//Eigentliche Verrechhnung: Alter Saldo mit neuem betrag
+//Eigentliche Verrechnung: Alter Saldo mit neuem Betrag
 
 
 
@@ -130,7 +130,7 @@ Warum 2.? Express gibt Befehle/Methoden für Server Aufbau.
 Express ist eine Bibliothek: fertiger Code von anderen Entwicklern der mir mein Leben leichter macht
 
 Warum 3.? Auch Bib für Node
-Gibt Methoden um Browser mitzuteilen: Dieses Backend darf mit mir (dem Frontend) kommunzieren obwohl wir unterschiedliche Ports haben. ICh (FrontEnd) darf Anfragen an Backend schicken
+Gibt Methoden um Browser mitzuteilen: Dieses Backend darf mit mir (dem Frontend) kommunzieren obwohl wir unterschiedliche Ports haben. Ich (FrontEnd) darf Anfragen an Backend schicken
 Port = Türnummer für programme auf meinem Computer. Programme die über ein Netzwerk erreichbar sein sollen - Server
 localhost = mein Computer
 localhost kann mehrere Programme haben
