@@ -1,6 +1,6 @@
 // Idee: ich baue den rechner so, dass davor gefragt wird welcher nutzer sich einloggt,
-// je nachdem wir vorzeichen des saldos umgedreht
-// Wichtig: rechner wird gebaut aus Perspektive WENN NIKOS YELVA 10€ SCHULDET -> SALDO -10€
+// je nachdem wer sich einloggt, wird Vorzeichen des saldos umgedreht
+// Wichtig: rechner wird gebaut aus dieser Perspektive, Beispiel: WENN NIKOS YELVA 10€ SCHULDET -> SALDO -10€
 
 let user = null
 const form = document.getElementById("eintragForm")
@@ -140,12 +140,12 @@ let saldoText = function(div, user, saldo) {
 //	•	HTML-Tags werden zu DOM-Elementen
 //	•	diese sind JavaScript-Objekt"
 //DOM=DOCUMENT OBJECT MODEL
-// FormData ist ein Bauplan zum erstellen eines objekts. Zb.gibt auch Date
+// FormData ist ein Bauplan zum erstellen eines objekts. Zb. gibt es auch Date
 // new erstellt ein konkretes objekt
-// Form Data macht dann daraus schlüssrl wert paare
+// Form Data macht dann daraus Schlüssel-Wert Paare
 // JS speichert die Schlüssel intern immer als Strings deswegen geht "Von"
 /*Primitive Werte (Zahl, String, Boolean) → werden beim Übergeben als Argument kopiert → Änderungen in der Funktion betreffen nur die Kopie, nicht die originale Variable.
 	•	Objekte/Arrays → werden als Referenz übergeben → Änderungen wirken auf das Original. */
 //21.03.26: als nächstes mechanismus bauen, der optionen sperrt, wenn eins gewählt ist
 // zb von yelva an yelva soll nicht gehen (eventuell einfach if bedingungen anpassen)
-// zusärtlich an beide mechanismus einbauen (rcihtiger wert wird habiert)
+// zusärtlich "an beide" mechanismus einbauen (rcihtiger wert wird habiert)
